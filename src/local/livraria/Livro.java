@@ -18,6 +18,11 @@ public class Livro {
     private Autor[] autores;
     private String ISBN;
 
+    /**
+     *
+     * @param titulo Titulo do livro a ser inserido
+     * @param ISBN  Identificador numerico para o livro
+     */
     public Livro(String titulo, String ISBN) {
         this.ISBN = ISBN;
         this.titulo = titulo;
@@ -25,26 +30,50 @@ public class Livro {
         autores = new Autor[5];
     }
 
+    /**
+     *
+     * @return os capitulos do livro
+     */
     public Capitulo[] getCapitulos() {
         return capitulos;
     }
 
+    /**
+     *
+     * @param capitulos Altera os capitulos do livro
+     */
     public void setCapitulos(Capitulo[] capitulos) {
         this.capitulos = capitulos;
     }
 
+    /**
+     *
+     * @return os autores do livro
+     */
     public Autor[] getAutores() {
         return autores;
     }
 
+    /**
+     *
+     * @param autores Altera os autores do livro
+     */
     public void setAutores(Autor[] autores) {
         this.autores = autores;
     }
 
+    /**
+     *
+     * @return o codigo ISBN do livro
+     */
     public String getISBN() {
         return ISBN;
     }
 
+    /**
+     *
+     * @param ISBN altera o codigo de livro ISBN
+     */
     public void setISBN(String ISBN) {
         this.ISBN = ISBN;
     }
@@ -84,6 +113,12 @@ public class Livro {
         return -1;
     }
 
+    /**
+     *  Remove o autor do livro
+     * 
+     * @param autor
+     * @return
+     */
     public int removerAutor(Autor autor) {
         for (int i = 0; i < autores.length; i++) {
             if (autores[i].equals(autor)) {
@@ -94,6 +129,12 @@ public class Livro {
         return -1;
     }
 
+    /**
+     * Adiciona autor ao livro
+     * 
+     * @param autor
+     * @return
+     */
     public int adicionarAutor(Autor autor) {
 
         for (int i = 0; i < autores.length; i++) {
@@ -105,6 +146,11 @@ public class Livro {
         return -1;
     }
 
+    /**
+     * Metodo de retorno sobre escrito toString quetornando o livrro com titulo, autores, e cod de livros.
+     *
+     * @return
+     */
     @Override
     public String toString() {
         return "Livro{" + "Título = " + titulo + ", autores=" + Arrays.toString(autores) + ", ISBN=" + ISBN + '}';

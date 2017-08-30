@@ -68,6 +68,10 @@ public class Livraria {
         } while (escolha != 9);
     }
 
+    /**
+     * Cadastra livros
+     *
+     */
     private int cadastrarLivro() throws Exception {
         for (int i = 0; i < livros.length; i++) {
             if (livros[i] == null) {
@@ -86,6 +90,10 @@ public class Livraria {
         return -1;
     }
 
+    /**
+     * Cadastro de Autores
+     *
+     */
     private void cadastraAutores(Livro livro, int numeroDeAutores) throws Exception {
         for (int j = 0; j < numeroDeAutores; j++) {
             System.out.println("Cadastro de Autor (" + (j + 1) + "/" + (numeroDeAutores) + ")");
@@ -98,6 +106,10 @@ public class Livraria {
         System.out.println("+-------------------------------------------------------------------+");
     }
 
+    /**
+     * Cadastro de Capitulos nos Livros
+     *
+     */
     private void cadastraCapitulos(Livro livro, int numeroDeCapitulos) throws Exception {
         for (int j = 0; j < numeroDeCapitulos; j++) {
             System.out.println("Cadastro de Capitulos (" + (j + 1) + "/" + (numeroDeCapitulos) + ")");
@@ -108,18 +120,30 @@ public class Livraria {
         System.out.println("+-------------------------------------------------------------------+");
     }
 
+    /**
+     * Adiciona Autores do livro
+     *
+     */
     private void adicionarAutorLivro(Livro livro) throws Exception {
         Autor autor = new Autor(Util.leString("Digite o nome do autor: "));
         autor.setDataDeNascimento(Util.leLocalDate("Digite a data de nascimento (dd/MM/YYYY): "));
         livro.adicionarAutor(autor);
     }
 
+    /**
+     * Adiciona Capitulos ao livro
+     *
+     */
     private void adicionarCapituloLivro(Livro livro) {
 
         livro.adicionarCapitulo(Util.leString("Digite o capítulo do Livro: "),
                 Util.leString("Digite o texto do capítulo: "));
     }
 
+    /**
+     * Exclui livros
+     *
+     */
     private void removerLivro() throws Exception {
         listarAcervo();
         int id = Util.leInteiro("Digite o id do livro: ");
@@ -130,6 +154,10 @@ public class Livraria {
         }
     }
 
+    /**
+     * Lista Todos Capitulos do Livros
+     *
+     */
     private void listarCapitulos(Livro livro) {
         Capitulo[] capitulos = livro.getCapitulos();
         for (int i = 0; i < capitulos.length; i++) {
@@ -139,6 +167,10 @@ public class Livraria {
         }
     }
 
+    /**
+     * Lista Todos os Livros
+     *
+     */
     private void listarAcervo() {
         for (int i = 0; i < livros.length; i++) {
             if (livros[i] != null) {
@@ -147,12 +179,20 @@ public class Livraria {
         }
     }
 
+    /**
+     * Reservar os Livros
+     *
+     */
     private void resetarLivraria() {
         for (int i = 0; i < livros.length; i++) {
             livros[i] = null;
         }
     }
 
+    /**
+     * Alterar dados dos Livros
+     *
+     */
     private void modificarLivroDoAcervo() throws Exception {
         listarAcervo();
         int id = Util.leInteiro("Digite o id do livro: ");
